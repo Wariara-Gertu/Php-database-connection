@@ -1,10 +1,10 @@
 <?php
 $server = "localhost";
-$username = "root";
-$password = "";
+$username = "root"; //root by default in the server
+$password = ""; 
 $database = "zalego";
 
-
+        //inbuild function
 $conn = mysqli_connect($server,$username,$password,$database);
 if(isset($_POST['submitbutton'])){
 
