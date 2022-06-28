@@ -7,18 +7,18 @@ $database = "zalego";
 
 $conn = mysqli_connect($server,$username,$password,$database);
 
-if(isset($_POST['submit']))
+if(isset($_POST['submitbutton']))
 {
 
     $fullname = $_POST['fullname'];
-    $phone = $_POST['phonenumber'];
+    $phonemuber = $_POST['phonemuber'];
     $email = $_POST['email'];
-    $gender = $_POSt['gender'];
-    $course = $_POSt['course'];
+    $gender = $_POST['gender'];
+    $course = $_POST['course'];
 
     $insertdata = mysqli_query($conn, "INSERT INTO 
-    enrollment(fullname,phonenumber,email,gender,course)
-    VALUES('$fullname','$phone','$email','$gender','$course')");
+    enrollment(fullname,phonemuber,email,gender,course)
+    VALUES('$fullname','$phonemuber','$email','$gender','$course')");
     if($insertdata)
     {
         echo "Data Submitted Successfully";
@@ -26,31 +26,11 @@ if(isset($_POST['submit']))
     else
     {
         
-        echo "Error Occured";
+        echo "Error Occured".mysqli_error($conn);
     }
 }
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -99,17 +79,18 @@ if(isset($_POST['submit']))
         </p></h6>
      <h2>Sign up today?</h2>
      <div class="container">
-        <form>
+        <form action="enroll.php" method="POST">
         <div class="row">
                     <div class="mb-3 col-lg-6">
-                        <label for="Fullname" class="form-label">Full Name</label>
+                        <label for="fullname" class="form-label">Full Name</label>
                         <input type="text"  name = "fullname"class="form-control" placeholder="Enter Your Full Name">
                     </div>
                     <div class="mb-3 col-lg-6">
-                       <label for="phonenumber" class="form-label">Phone Number</label>
-                       <input type="text" name="phonenumber" class="form-control" placeholder="+2547....">
+                       <label for="phonemuber" class="form-label">Phone Number</label>
+                       <input type="text" name="phonemuber" class="form-control" placeholder="enter phonenumber">
                    </div>
                 </div>
+
                 <div class="row">
                 <div class="mb-3 col-lg-6">
                        <label for="email" class="form-label">Email</label>
@@ -117,22 +98,19 @@ if(isset($_POST['submit']))
                    </div>
                     <div class="mb-3 col-lg-6">
                         <label for="gender" name="gender" class="form-label">What's your gender?</label>
+                        <select class="formselect" name="gender">
+                        <option selected>--select your gender--</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="nonbinary">Non-binary</option>
+                        </select>
                         
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            --select your gender--
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Male</a></li>
-                                <li><a class="dropdown-item" href="#">Female</a></li>
-                                <li><a class="dropdown-item" href="#">Non-binary</a></li>
-                            </ul>
-                            </div>
+                       
                     </div>
 
                 </div>
 
-        </form>
+        
         <br>
         <div class="row">
 
@@ -145,21 +123,18 @@ if(isset($_POST['submit']))
         </div>
         <br>
         <div class="row">
-        <div class="mb-3 col-lg-6">
-                        <label for="course"name="course" class="form-label">What's your Preference?</label>
+            <div class="mb-3 col-lg-6">
+                        <label for="course" name="course" class="form-label">What's your Preference?</label>
+                        <select  class="formselect" name="course" >
+                        <option selected>--select your course--</option>    
+                            <option value="webdesign">Web design</option>
+                            <option value="cybersecurity">Cyber Security</option>
+                            <option value="datascience">Data science</option>
+                        </select>
                         
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            --select your course--
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Cyber security</a></li>
-                                <li><a class="dropdown-item" href="#">Web design</a></li>
-                                <li><a class="dropdown-item" href="#">Data science</a></li>
-                            </ul>
-                            </div>
-                    </div>
-</div>
+                        
+            </div>
+        </div>
 
 
 
@@ -176,11 +151,8 @@ if(isset($_POST['submit']))
   </label>
 </div>
 <button type="submit"  name = "submitbutton" class="btn btn-primary">submit application</button>
-
-
-
-
  </div>
+ </form>
  <hr>
 
  <div class="row">
@@ -188,14 +160,14 @@ if(isset($_POST['submit']))
             Subscribe to get new information,latest news about Zalego Academy.
         </p>
      </div>
-     <form action="enroll.php" method = "POST">
+     
     
     <div class="row col-6">
         <button type="submit"  name = "submit" class="btn btn-primary">Subscribe</button>
         <input type="email"  name = "email"class="form-control" placeholder="Your email address">
     </div>
     
-    </form>
+    
 
 <div>
     
