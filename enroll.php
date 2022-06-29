@@ -62,24 +62,37 @@ if(isset($_POST['submitbutton']))
                 </div>
             </div>
      </nav>
-
-     <main class= "bp-5 mb-2 bg-secondary text-black">
-        <h2 >JULY SOFTWARE ENGINEERING BOOTCAMP</h2>
-       <span> <i class="fa-solid fa-location-dot"> </i>
-        </span>
-        <span>Zalego Academy.Devan Plaza</span>
-        <span><i class="fa-solid fa-calendar-days"></i></span>
-        <span>2oth July 2022</span>
-     </main>
-     <h6>
-        <p>
-        Looking for a place to kick start your career in Technology?
-        Whether you're a local,new in town or just crusing through we've got 
-        loads of great tips and events for you.
-        </p></h6>
-     <h2>Sign up today?</h2>
      <div class="container">
+
+     <main class= "bp-5 mb-2  bg-secondary text-black">
+        <h2 >JULY SOFTWARE ENGINEERING BOOTCAMP</h2>
+
+        <span><i class="fa fa-calendar-check-o fa-3x"></i></span>
+        <span>2oth July 2022</span>
+        
+        <br>
+
+       <span> <i class="fa fa-map-marker fa-3x"> </i></span>
+        <span>Zalego Academy <br>
+            Devan Plaza</span>
+            
+            
+       
+     </main>
+     
+     </div>
+     
+     <h6>
+        <p class="text-centre">
+        Looking for a place to kick start your career in Technology? <br>
+        Whether you're a local,new in town or just crusing through we've got <br>
+        loads of great tips and events for you.
+        </p>
+    </h6>
+    
+     <div class="container shadow p-3 mb-5 bg-body rounded">
         <form action="enroll.php" method="POST">
+        <h2 class="text-centre text-primary">Sign up today?</h2>
         <div class="row">
                     <div class="mb-3 col-lg-6">
                         <label for="fullname" class="form-label">Full Name</label>
@@ -98,7 +111,7 @@ if(isset($_POST['submitbutton']))
                    </div>
                     <div class="mb-3 col-lg-6">
                         <label for="gender" name="gender" class="form-label">What's your gender?</label>
-                        <select class="formselect" name="gender">
+                        <select class="form-select" name="gender">
                         <option selected>--select your gender--</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
@@ -115,7 +128,7 @@ if(isset($_POST['submitbutton']))
         <div class="row">
 
         <h6>
-            <p>
+            <p class="text-centre">
                 In order to complete your registration to the bootcamp, you are required to select one course you will be undertaking.
                 Please NOTE that this will be your learning track during the 2-weeks immersion
             </p>
@@ -125,7 +138,7 @@ if(isset($_POST['submitbutton']))
         <div class="row">
             <div class="mb-3 col-lg-6">
                         <label for="course" name="course" class="form-label">What's your Preference?</label>
-                        <select  class="formselect" name="course" >
+                        <select  class="form-select" name="course" >
                         <option selected>--select your course--</option>    
                             <option value="webdesign">Web design</option>
                             <option value="cybersecurity">Cyber Security</option>

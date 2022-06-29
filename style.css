@@ -1,6 +1,9 @@
-main{
+h2{
     padding-top: 60px;
     margin: centre;
+}
+main{
+    background-color: grey;
 }
 h6{
     text-align: center;
